@@ -1,0 +1,23 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div id="container">
+        {% for flashMessage in app.session.flashbag.get('redirect_annotation') %}
+            <div id="back">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+
+        <div>
+            <a href="{{ path("loader_annotation") }}">call controller having an annotation in method LISTENER, id link loader_annotation</a>
+        </div>
+
+        <div>
+            <a href="{{ path("other") }}">call controller having an annotation in class LISTENER, id link other</a>
+        </div>
+
+        <div>
+            <a href="{{ path("other_subscriber") }}">call controller having an annotation in class SUBSCRIBER, id link other_subscriber</a>
+        </div>
+    </div>
+{% endblock %}

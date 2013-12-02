@@ -1,0 +1,15 @@
+services:
+    # Creating annotation like listener
+    listener_annotation_driver:
+        class: MGD\AnnotationExampleBundle\Annotations\Drivers\AnnotationDriver
+        arguments: [@annotation_reader]
+        tags:
+            - {name: kernel.event_listener, event: kernel.controller, method: onKernelController}
+
+
+    # Creating annotation like subscriber
+    subscriber_annotation_driver:
+        class: MGD\AnnotationExampleBundle\Annotations\Drivers\AnnotationDriverSubscriber
+        arguments: [@annotation_reader]
+        tags:
+            - {name: kernel.event_subscriber}
